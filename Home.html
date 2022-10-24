@@ -8,12 +8,43 @@
 
 <body>
 <h1>The Circles Game</h1>
-
+<br>
+<br>
+<br>
+<h3>User Setting</h3>
+<br>
+Name: <input type="text" id="nameText" name="name">
+<p>Click the button below to display the name you have entered</p>
+<button onclick="display()">Display name</button>
+<br>
+<button class="load-image" href="avatar.png">
+    Click to load photograph of your user avatar
+</button>
+<br>
+<br>
+<br>
 <h3>Description</h3>
 <p> Let's knock some circles out! </p>
 <a href="ExampleCircle.html">
     Select this hyperlink to access a possible circle in the game
 </a>
+
+<script>
+    function display() {
+      var x = document.getElementById("nameText").name;
+      alert("Name of Current User: " + x);
+    }
+    document.querySelectorAll(".load-image").forEach((item) => {
+        item.addEventListener("click", (event) => {
+            const href = event.target.getAttribute("href");
+            event.preventDefault();
+            const newImage = document.createElement("img");
+            newImage.setAttribute("src", href);
+            document.body.insertBefore(newImage, event.target);
+            event.target.remove();
+        });
+    });
+</script>
 
 </body>
 </html>
