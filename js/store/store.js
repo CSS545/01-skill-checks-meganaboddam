@@ -88,20 +88,10 @@ export default class Store {
         return true;
     }
 
-    /**
-     * Look for a mutation and modify the state object 
-     * if that mutation exists by calling it
-     *
-     * @param {string} mutationKey
-     * @param {mixed} payload
-     * @returns {boolean}
-     * @memberof Store
-     */
+    
     commit(mutationKey, payload) {
         let self = this;
         
-        // Run a quick check to see if this mutation actually exists
-        // before trying to run it
         if(typeof self.mutations[mutationKey] !== 'function') {
             console.log(`Mutation "${mutationKey}" doesn't exist`);
             return false;
